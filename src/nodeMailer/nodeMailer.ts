@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import jsonfile from 'jsonfile';
 import path from 'path';
-const filePath = path.join(__dirname, '../../DB//usersAndCodes.json');
+const filePath = path.join(__dirname, '../../DB/usersAndCodes.json');
 
 function generateRandom6DigitNumber() {
   const randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;

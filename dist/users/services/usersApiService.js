@@ -5,7 +5,7 @@ const uuid_1 = require("uuid");
 const bcrypt_1 = require("../helpers/bcrypt");
 const jsonfileDAL_1 = require("../../dataAccessLayer/jsonfileDAL");
 const jwt_1 = require("../../auth/providers/jwt");
-const nodeMailer_1 = require("../../nodeMailer/nodeMailer");
+const nodeMailer_1 = require("../../nodemailer/nodeMailer");
 const getUsers = async () => {
     try {
         const users = await (0, jsonfileDAL_1.getCollectionFromJsonFile)("users");

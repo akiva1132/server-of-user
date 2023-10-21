@@ -6,7 +6,7 @@ import {
   modifyCollection,
 } from "../../dataAccessLayer/jsonfileDAL";
 import { generateAuthToken } from "../../auth/providers/jwt";
-import { sendEmail } from "../../nodeMailer/nodeMailer";
+import { sendEmail } from "../../nodemailer/nodeMailer";
 type UserResult = Promise<UserInterface | null>;
 
 export const getUsers = async () => {
