@@ -1,7 +1,5 @@
 require('dotenv').config();
 const OPEN_AI_API_KEY = process.env.API_KEY;
-
-
 const GPT_SYSTEM_MASSAGE = `You are provided with a code extracted from a screenshot using OCR. This code contains errors related to special characters, such as single quotation marks replaced by double quotation marks, missing backtick, brackets replaced by a pipe symbol, and more.
 Your task is to correct these special character errors and return the revised code.
 Note that you should only address errors related to the identification of special characters and not correct any other code errors.
