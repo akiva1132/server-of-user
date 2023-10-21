@@ -10,6 +10,6 @@ const corsOptions: CorsOptions = {
   origin: whiteList,
 };
 
-const corsHandler = cors(corsOptions);
+const corsHandler = cors();
 
 export default corsHandler;

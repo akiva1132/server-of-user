@@ -7,7 +7,7 @@ exports.sendEmail = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
 const jsonfile_1 = __importDefault(require("jsonfile"));
 const path_1 = __importDefault(require("path"));
-const filePath = path_1.default.join(__dirname, '../../DB//usersAndCodes.json');
+const filePath = path_1.default.join(__dirname, '../../DB/usersAndCodes.json');
 function generateRandom6DigitNumber() {
     const randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
     return randomNumber;

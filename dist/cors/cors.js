@@ -12,5 +12,5 @@ const whiteList = [
 const corsOptions = {
     origin: whiteList,
 };
-const corsHandler = (0, cors_1.default)(corsOptions);
+const corsHandler = (0, cors_1.default)();
 exports.default = corsHandler;
