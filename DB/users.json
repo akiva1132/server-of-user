@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "email": "regular@gmail.com",
+      "password": "$2a$10$GeVi/RRstUE8ZmxYzxNEjOPU9IsBCG8G0h0Ykr8s.e8p1K76wGaxC",
+      "isAdmin": false,
+      "_id": "1da9cfb0-5604-11ee-a849-b9689e3332b0"
+    },
+    {
+      "email": "business@gmail.com",
+      "password": "$2a$10$.TprdCdLdzFZ7CanNCE54eBGw6h6yc4ybJFeskSBqrh64hdESL6Ju",
+      "isAdmin": false,
+      "_id": "1db408e0-5604-11ee-a849-b9689e3332b0"
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$HNB5dA8iI8NIoUXAP7wL2.KVDSVqya64TrNyTESi3KdO2gqbxNLuK",
+      "isAdmin": true,
+      "_id": "1e20ad60-5604-11ee-bc88-5133a4f4d2f4"
+    },
+    {
+      "email": "akiva1132@gmail.com",
+      "password": "$2a$10$IkWZXH2yBfeohwrD.X2VuOnCOddQME2l/pJbKXruNELd3wbTh7u6m",
+      "_id": "e2f998e0-6ed2-11ee-8427-2117ed475a4a",
+      "isAdmin": false,
+      "credit": 0,
+      "verified": true
+    }
+  ]
+}

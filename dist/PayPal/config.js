@@ -1,0 +1,3 @@
+"use strict";
+const CLIENT_ID = "AWuutuwcDjV1bKKKixdtA9LkXEw8tSNoUjQXpOBIJlqutaGdLakuH-Q0_HXQQuRbegsOrE1ae78yK8Ik";
+const CLIENT_SECRET = "EKcW6HHiLmaKU0LKX2Kk7OE27tHJDjS3LeTGeKiPG1eUL7F3R5BqD08Y0aizzDm5QHz5wqU-hKK3bwIv";
