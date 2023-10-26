@@ -15,7 +15,7 @@ const emailVerification = async (req, res) => {
     const data = jsonfile_1.default.readFileSync(filePath);
     const userFromJson = data.users.find(user => { return user.email === email; });
     if (userFromJson?.code !== code) {
-        res.status(401).send("Incorrect password");
+        res.status(402).send("Incorrect password");
         return;
     }
     const userForUpdate = await (0, usersApiService_1.getUserByEmail)(email);

@@ -1,7 +1,7 @@
 {
   "orders": [
     {
-      "id": "3V713389XX059410W",
+      "id": "0US3505150487270D",
       "intent": "CAPTURE",
       "status": "COMPLETED",
       "payment_source": {
@@ -23,7 +23,7 @@
           "reference_id": "default",
           "amount": {
             "currency_code": "USD",
-            "value": "0.20"
+            "value": "1.00"
           },
           "payee": {
             "email_address": "aklatatsichot@gmail.com",
@@ -45,11 +45,11 @@
           "payments": {
             "captures": [
               {
-                "id": "9A323290KJ413125E",
+                "id": "5CT61986RG2765459",
                 "status": "COMPLETED",
                 "amount": {
                   "currency_code": "USD",
-                  "value": "0.20"
+                  "value": "1.00"
                 },
                 "final_capture": true,
                 "seller_protection": {
@@ -62,36 +62,45 @@
                 "seller_receivable_breakdown": {
                   "gross_amount": {
                     "currency_code": "USD",
-                    "value": "0.20"
+                    "value": "1.00"
                   },
                   "paypal_fee": {
                     "currency_code": "USD",
-                    "value": "0.20"
+                    "value": "0.33"
                   },
                   "net_amount": {
                     "currency_code": "USD",
-                    "value": "0.00"
+                    "value": "0.67"
+                  },
+                  "receivable_amount": {
+                    "currency_code": "ILS",
+                    "value": "2.64"
+                  },
+                  "exchange_rate": {
+                    "source_currency": "USD",
+                    "target_currency": "ILS",
+                    "value": "3.942899999999999"
                   }
                 },
                 "links": [
                   {
-                    "href": "https://api.paypal.com/v2/payments/captures/9A323290KJ413125E",
+                    "href": "https://api.paypal.com/v2/payments/captures/5CT61986RG2765459",
                     "rel": "self",
                     "method": "GET"
                   },
                   {
-                    "href": "https://api.paypal.com/v2/payments/captures/9A323290KJ413125E/refund",
+                    "href": "https://api.paypal.com/v2/payments/captures/5CT61986RG2765459/refund",
                     "rel": "refund",
                     "method": "POST"
                   },
                   {
-                    "href": "https://api.paypal.com/v2/checkout/orders/3V713389XX059410W",
+                    "href": "https://api.paypal.com/v2/checkout/orders/0US3505150487270D",
                     "rel": "up",
                     "method": "GET"
                   }
                 ],
-                "create_time": "2023-10-25T21:49:01Z",
-                "update_time": "2023-10-25T21:49:01Z"
+                "create_time": "2023-10-26T18:10:14Z",
+                "update_time": "2023-10-26T18:10:14Z"
               }
             ]
           }
@@ -108,11 +117,11 @@
           "country_code": "IL"
         }
       },
-      "create_time": "2023-10-25T21:48:47Z",
-      "update_time": "2023-10-25T21:49:01Z",
+      "create_time": "2023-10-26T18:09:29Z",
+      "update_time": "2023-10-26T18:10:14Z",
       "links": [
         {
-          "href": "https://api.paypal.com/v2/checkout/orders/3V713389XX059410W",
+          "href": "https://api.paypal.com/v2/checkout/orders/0US3505150487270D",
           "rel": "self",
           "method": "GET"
         }

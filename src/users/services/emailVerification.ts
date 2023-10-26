@@ -15,7 +15,7 @@ export const emailVerification = async (req: Request, res: Response) => {
     const data: Record<string, Record<string, string>[]> = jsonfile.readFileSync(filePath)
     const userFromJson = data.users.find(user => { return user.email === email });
     if (userFromJson?.code !== code){
-        res.status(401).send("Incorrect password")
+        res.status(402).send("Incorrect password")
         return
     }
     const userForUpdate = await getUserByEmail(email);
