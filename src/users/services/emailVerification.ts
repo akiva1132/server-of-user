@@ -2,10 +2,11 @@ import { handleError } from "../../utils/handleErrors";
 import UserInterface from "../interfaces/UserInterface";
 import { Request, Response, NextFunction, json } from "express";
 import userValidation from "../models/joi/userValidation";
-import { getUserByEmail } from "./usersApiService";
+import { getUserByEmail, login } from "./usersApiService";
 import { getCollectionFromJsonFile, modifyCollection } from "../../dataAccessLayer/jsonfileDAL";
 import jsonfile from "jsonfile";
 import path from "path";
+import { generateAuthToken } from "../../auth/providers/jwt";
 const filePath = path.join(__dirname, "../../../DB/usersAndCodes.json");
 
 export const emailVerification = async (req: Request, res: Response) => {
@@ -33,9 +34,11 @@ export const emailVerification = async (req: Request, res: Response) => {
         usersCopy[index] = userToUpdate;
         const data = await modifyCollection("users", usersCopy);
         if (!data) throw new Error("User authenticated but we were unable to update the system");
-        res.status(201).send("authenticated user")
+        const token = await login(req.body);
+        return res.status(201).send(token);
     } catch (error) {
         res.status(401).send(Promise.reject(error))
     }
 }
+
 

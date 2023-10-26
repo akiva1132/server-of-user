@@ -10,14 +10,15 @@ const orderVerification_1 = require("../../PayPal/orderVerification");
 const handleErrors_1 = require("../../utils/handleErrors");
 const userValidation_1 = __importDefault(require("../models/joi/userValidation"));
 const checkOrder = async (req, res) => {
+    console.log(req.user);
     const { orderId } = req.params;
     try {
         const order = await (0, orderVerification_1.orderVerification)(orderId);
-        const resFromSaveOrder = await (0, orders_1.saveOrder)(order);
+        const resFromSaveOrder = await (0, orders_1.saveOrder)(order, req.user);
         res.status(201).send(resFromSaveOrder);
     }
     catch (error) {
-        res.status(400).send("The order already exists");
+        res.status(400).send(error);
     }
 };
 exports.checkOrder = checkOrder;

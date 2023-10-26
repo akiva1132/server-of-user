@@ -4,7 +4,7 @@
   "description": "express server exe",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "nodemon .",
+    "dev": "start .",
     "ts": "tsc -w"
   },
   "author": "David Yakin",

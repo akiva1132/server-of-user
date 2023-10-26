@@ -16,6 +16,7 @@ const orderVerification = async (orderId) => {
         });
         const data = await response.json();
         if (response.ok) {
+            console.log(data);
             return data;
         }
         else {

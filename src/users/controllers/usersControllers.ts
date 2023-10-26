@@ -14,15 +14,29 @@ import userValidation from "../models/joi/userValidation";
 import { Request, Response } from "express";
 import { UserRequest } from "../../auth/providers/jwt";
 
+interface User{
+  _id: string,
+  isAdmin: boolean,
+  iat: number
+}
+declare global {
+    namespace Express {
+        interface Request {
+            user: User;
+        }
+    }
+}
 
 export const checkOrder = async (req: Request, res: Response)=>{
+  console.log(req.user);
+  
   const {orderId} = req.params
   try{
     const order = await orderVerification(orderId)
-    const resFromSaveOrder = await saveOrder(order)
+    const resFromSaveOrder = await saveOrder(order, req.user)
     res.status(201).send(resFromSaveOrder)
   }catch (error){
-    res.status(400).send("The order already exists")
+    res.status(400).send(error)
   }
 }
 

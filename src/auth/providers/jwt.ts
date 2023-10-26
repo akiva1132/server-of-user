@@ -7,7 +7,12 @@ import { handleError } from "../../utils/handleErrors";
 const KEY = config.get<string | null>("JWT_KEY");
 
 export const generateAuthToken = (user: UserInterface) => {
-  const { _id, isAdmin } = user;
+  
+  const { _id, isAdmin, verified } = user;
+  if (!verified){
+    return "user is not verified"
+  }
+  
   if (!KEY) throw new Error("no secret key provided!");
   const token = jwt.sign({ _id, isAdmin }, KEY);
   return token;
@@ -36,6 +41,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
     if (tokenFromClient === "test") {
       const reqUser = req as UserRequest;
       reqUser.user = { _id: "string", isAdmin: true }
+
       return next();
     }
     const userInfo = verifyToken(tokenFromClient);

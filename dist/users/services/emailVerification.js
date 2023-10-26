@@ -35,7 +35,8 @@ const emailVerification = async (req, res) => {
         const data = await (0, jsonfileDAL_1.modifyCollection)("users", usersCopy);
         if (!data)
             throw new Error("User authenticated but we were unable to update the system");
-        res.status(201).send("authenticated user");
+        const token = await (0, usersApiService_1.login)(req.body);
+        return res.status(201).send(token);
     }
     catch (error) {
         res.status(401).send(Promise.reject(error));

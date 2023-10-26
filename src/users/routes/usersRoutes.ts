@@ -15,7 +15,7 @@ const router = express.Router();
 router.get("/", auth, handleGetUsers);
 router.get("/:id", auth, handleGetUser);
 router.post("/", handleUserRegistration);
-router.post("/checkOrder/:id/:orderId",checkOrder );
+router.post("/checkOrder/:orderId", auth, checkOrder );
 router.put("/:id", auth, handleEditUser);
 router.post("/emailVerification/:code", emailVerification);
 router.delete("/:id", auth, handleDeleteUser);

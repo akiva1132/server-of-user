@@ -9,7 +9,10 @@ const config_1 = __importDefault(require("config"));
 const handleErrors_1 = require("../../utils/handleErrors");
 const KEY = config_1.default.get("JWT_KEY");
 const generateAuthToken = (user) => {
-    const { _id, isAdmin } = user;
+    const { _id, isAdmin, verified } = user;
+    if (!verified) {
+        return "user is not verified";
+    }
     if (!KEY)
         throw new Error("no secret key provided!");
     const token = jsonwebtoken_1.default.sign({ _id, isAdmin }, KEY);

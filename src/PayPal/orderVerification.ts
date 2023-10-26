@@ -7,6 +7,7 @@ const headers = {
   Authorization: `Basic ${authToken}`,
 };
 
+
 export const orderVerification = async (orderId:string) => {
   try {
     const response = await fetch(`https://api.paypal.com/v2/checkout/orders/${orderId}`, {
@@ -15,7 +16,7 @@ export const orderVerification = async (orderId:string) => {
     });
     const data = await response.json();
     if (response.ok) {
-      // console.log(data);
+      console.log(data);
       return data;
     } else {
       console.log(data);

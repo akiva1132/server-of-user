@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.login = exports.deleteUser = exports.editUser = exports.register = exports.getUserByEmail = exports.getUser = exports.getUsers = void 0;
+exports.editCredit = exports.loginAfterRegister = exports.login = exports.deleteUser = exports.editUser = exports.register = exports.getUserByEmail = exports.getUser = exports.getUsers = void 0;
 const uuid_1 = require("uuid");
 const bcrypt_1 = require("../helpers/bcrypt");
 const jsonfileDAL_1 = require("../../dataAccessLayer/jsonfileDAL");
@@ -130,3 +130,58 @@ const login = async (userFromClient) => {
     }
 };
 exports.login = login;
+const loginAfterRegister = async (email, password) => {
+    try {
+        const users = (await (0, jsonfileDAL_1.getCollectionFromJsonFile)("users"));
+        if (!users)
+            throw new Error("Oops... Could not get the users from the Database");
+        const userInDB = users.find((user) => email === user.email);
+        if (!userInDB)
+            throw new Error("The email or password is incorrect!");
+        const userCopy = { ...userInDB };
+        if (!(0, bcrypt_1.comparePassword)(password, userCopy.password))
+            throw new Error("The email or password is incorrect!");
+        const token = (0, jwt_1.generateAuthToken)(userInDB);
+        return token;
+    }
+    catch (error) {
+        return Promise.reject(error);
+    }
+};
+exports.loginAfterRegister = loginAfterRegister;
+const editCredit = async (userId, amount) => {
+    try {
+        const users = await (0, jsonfileDAL_1.getCollectionFromJsonFile)("users");
+        if (users instanceof Error)
+            throw new Error("Oops... Could not get the users from the Database");
+        const index = users.findIndex((user) => user._id === userId);
+        if (index === -1)
+            throw new Error("Could not find user with this ID!");
+        const userForUpdate = users.find(user => { return user._id === user._id; });
+        if (userForUpdate) {
+            if (amount === 1) {
+                userForUpdate.credit = userForUpdate.credit + 1;
+            }
+            else if (amount === 3) {
+                userForUpdate.credit = userForUpdate.credit + 5;
+            }
+            else if (amount === 10) {
+                userForUpdate.credit = userForUpdate.credit + 20;
+            }
+            else {
+                return "The payment amount does not match the plan you selected, please contact customer service";
+            }
+        }
+        const usersCopy = [...users];
+        const userToUpdate = { ...usersCopy[index], ...userForUpdate };
+        usersCopy[index] = userToUpdate;
+        const data = await (0, jsonfileDAL_1.modifyCollection)("users", usersCopy);
+        if (!data)
+            throw new Error("Oops... something went wrong Could not Edit this user");
+        return null;
+    }
+    catch (error) {
+        return Promise.reject(error);
+    }
+};
+exports.editCredit = editCredit;
