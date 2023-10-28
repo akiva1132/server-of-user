@@ -13,7 +13,7 @@ const headers = {
 export const orderVerification = async (orderId) => {
   try {
     const response = await request.get(`https://api.paypal.com/v2/checkout/orders/${orderId}`)
-      .set(headers);  // השתמש ב-headers שהגדרת
+      .set(headers); 
     const data = response.body;
     if (response.ok) {
       console.log(data);

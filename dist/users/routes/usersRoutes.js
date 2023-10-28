@@ -11,6 +11,7 @@ const jwt_1 = require("../../auth/providers/jwt");
 const router = express_1.default.Router();
 router.get("/", jwt_1.auth, usersControllers_1.handleGetUsers);
 router.get("/:id", jwt_1.auth, usersControllers_1.handleGetUser);
+router.get("/email/:email", jwt_1.auth, usersControllers_1.getByEmail);
 router.post("/", usersControllers_1.handleUserRegistration);
 router.post("/checkOrder/:orderId", usersControllers_2.checkOrder);
 router.put("/:id", jwt_1.auth, usersControllers_1.handleEditUser);

@@ -6,6 +6,7 @@ import {
   editUser,
   deleteUser,
   login,
+  getUserByEmail
 } from "../services/usersApiService";
 import { saveOrder } from "../../orders/SaveOrder";
 import { orderVerification } from "../../PayPal/orderVerification";
@@ -38,6 +39,16 @@ export const checkOrder = async (req: Request, res: Response)=>{
     res.status(201).send(resFromSaveOrder)
   }catch (error){
     res.status(400).send(error)
+  }
+}
+
+export const getByEmail = async (req: Request, res: Response)=>{
+  const {email} = req.params  
+  try{
+    const user = await getUserByEmail(email)
+    res.status(201).send(user)
+  }catch (error){
+    res.status(400).send("not found user")
   }
 }
 

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleLogin = exports.handleDeleteUser = exports.handleEditUser = exports.handleUserRegistration = exports.handleGetUser = exports.orderProcessing = exports.handleGetUsers = exports.checkOrder = void 0;
+exports.handleLogin = exports.handleDeleteUser = exports.handleEditUser = exports.handleUserRegistration = exports.handleGetUser = exports.orderProcessing = exports.handleGetUsers = exports.getByEmail = exports.checkOrder = void 0;
 const usersApiService_1 = require("../services/usersApiService");
 const SaveOrder_1 = require("../../orders/SaveOrder");
 const orderVerification_1 = require("../../PayPal/orderVerification");
@@ -23,6 +23,17 @@ const checkOrder = async (req, res) => {
     }
 };
 exports.checkOrder = checkOrder;
+const getByEmail = async (req, res) => {
+    const { email } = req.params;
+    try {
+        const user = await (0, usersApiService_1.getUserByEmail)(email);
+        res.status(201).send(user);
+    }
+    catch (error) {
+        res.status(400).send("not found user");
+    }
+};
+exports.getByEmail = getByEmail;
 const handleGetUsers = async (req, res) => {
     try {
         const reqUser = req;
