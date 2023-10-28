@@ -14,9 +14,11 @@ const saveOrder = async (order, user) => {
         const data = await jsonfile_1.default.readFile(filePath);
         const amount = order.purchase_units[0].amount.value;
         const orderId = order.id;
+        console.log(orderId);
         const index = data.orders.findIndex(order => order.id === orderId);
         console.log(index);
         if (index === -1) {
+            console.log(index);
             const massage = await (0, usersApiService_1.editCredit)(user.email, amount);
             if (massage !== null) {
                 return massage;

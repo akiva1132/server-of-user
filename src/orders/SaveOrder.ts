@@ -15,9 +15,12 @@ export const saveOrder = async (order:object, user:{email:string, password:strin
         const data:Record<string, object[]> = await jsonfile.readFile(filePath);
         const amount = order.purchase_units[0].amount.value
         const orderId = order.id
+        console.log(orderId);
+        
         const index = data.orders.findIndex(order => order.id === orderId);
         console.log(index);
         if (index === -1) { 
+          console.log(index);
           
           const massage = await editCredit(user.email, amount)
           if (massage !== null){

@@ -172,7 +172,6 @@ const editCredit = async (email, amount) => {
                 return "The payment amount does not match the plan you selected, please contact customer service";
             }
         }
-        console.log("amount111111111111111111111");
         const usersCopy = [...users];
         const userToUpdate = { ...usersCopy[index], ...userForUpdate };
         usersCopy[index] = userToUpdate;
