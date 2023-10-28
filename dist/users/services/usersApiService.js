@@ -149,17 +149,16 @@ const loginAfterRegister = async (email, password) => {
     }
 };
 exports.loginAfterRegister = loginAfterRegister;
-const editCredit = async (userId, amount) => {
+const editCredit = async (email, amount) => {
     try {
         const users = await (0, jsonfileDAL_1.getCollectionFromJsonFile)("users");
         if (users instanceof Error)
             throw new Error("Oops... Could not get the users from the Database");
-        const index = users.findIndex((user) => user._id === userId);
+        const index = users.findIndex((user) => user.email === email);
         if (index === -1)
             throw new Error("Could not find user with this ID!");
-        const userForUpdate = users.find(user => { return user._id === user._id; });
+        const userForUpdate = users.find(user => { return user.email === email; });
         if (userForUpdate) {
-            console.log(amount);
             if (Math.abs(amount - 1.00) < 0.001) {
                 userForUpdate.credit = userForUpdate.credit + 1;
             }
@@ -173,6 +172,7 @@ const editCredit = async (userId, amount) => {
                 return "The payment amount does not match the plan you selected, please contact customer service";
             }
         }
+        console.log("amount111111111111111111111");
         const usersCopy = [...users];
         const userToUpdate = { ...usersCopy[index], ...userForUpdate };
         usersCopy[index] = userToUpdate;

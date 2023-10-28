@@ -7,7 +7,7 @@ import {
   deleteUser,
   login,
 } from "../services/usersApiService";
-import { saveOrder } from "../../orders/orders";
+import { saveOrder } from "../../orders/SaveOrder";
 import { orderVerification } from "../../PayPal/orderVerification";
 import { handleError } from "../../utils/handleErrors";
 import userValidation from "../models/joi/userValidation";
@@ -28,12 +28,11 @@ declare global {
 }
 
 export const checkOrder = async (req: Request, res: Response)=>{
-  console.log(req.user);
-  
   const {orderId} = req.params
   try{
     const order = await orderVerification(orderId)
-    const resFromSaveOrder = await saveOrder(order, req.user)
+    console.log(order, req.body);
+    const resFromSaveOrder = await saveOrder(order, req.body)
     res.status(201).send(resFromSaveOrder)
   }catch (error){
     res.status(400).send(error)

@@ -5,16 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleLogin = exports.handleDeleteUser = exports.handleEditUser = exports.handleUserRegistration = exports.handleGetUser = exports.orderProcessing = exports.handleGetUsers = exports.checkOrder = void 0;
 const usersApiService_1 = require("../services/usersApiService");
-const orders_1 = require("../../orders/orders");
+const SaveOrder_1 = require("../../orders/SaveOrder");
 const orderVerification_1 = require("../../PayPal/orderVerification");
 const handleErrors_1 = require("../../utils/handleErrors");
 const userValidation_1 = __importDefault(require("../models/joi/userValidation"));
 const checkOrder = async (req, res) => {
-    console.log(req.user);
     const { orderId } = req.params;
     try {
         const order = await (0, orderVerification_1.orderVerification)(orderId);
-        const resFromSaveOrder = await (0, orders_1.saveOrder)(order, req.user);
+        console.log(order, req.body);
+        const resFromSaveOrder = await (0, SaveOrder_1.saveOrder)(order, req.body);
         res.status(201).send(resFromSaveOrder);
     }
     catch (error) {

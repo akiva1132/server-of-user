@@ -15,8 +15,7 @@ const saveOrder = async (order, user) => {
         const amount = order.purchase_units[0].amount.value;
         const index = data.orders.findIndex(order => order.id === order.id);
         if (index === -1) {
-            console.log(user, amount);
-            const massage = await (0, usersApiService_1.editCredit)(user.email, amount);
+            const massage = await (0, usersApiService_1.editCredit)(user.email, 1.00);
             if (massage !== null) {
                 return massage;
             }

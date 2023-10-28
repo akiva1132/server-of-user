@@ -20,75 +20,11 @@
             "_id": "1e20ad60-5604-11ee-bc88-5133a4f4d2f4"
         },
         {
-            "email": "regular@gmail.com",
-            "password": "$2a$10$GeVi/RRstUE8ZmxYzxNEjOPU9IsBCG8G0h0Ykr8s.e8p1K76wGaxC",
-            "_id": "1da9cfb0-5604-11ee-a849-b9689e3332b0",
-            "isAdmin": false,
-            "credit": null,
-            "verified": true
-        },
-        {
-            "email": "aklatatsichot@gmail.com",
-            "password": "$2a$10$KHW7jVxzTA0vXm0XUuw0kek.XBWzHI78ccpl3i3vneVAXetcUpqxC",
-            "_id": "16442090-7067-11ee-9151-67bd903cc0e2",
+            "email": "akivA1132@gmail.com",
+            "password": "$2a$10$2gIJbZtdaBCrPNhOpxKQ9O6fPD5NPqHUK2HwrdsyQXG1ekYiCMfw2",
+            "_id": "507bd280-75d5-11ee-9928-3f0473d48aac",
             "isAdmin": false,
             "credit": 0,
-            "verified": true
-        },
-        {
-            "email": "kobiquinn50@gmail.com",
-            "password": "$2a$10$iKeJDwgDOy3U9xpEX.f2kuFsswGBTG1bVRTgt5bwkxGa3vzLyXAI6",
-            "_id": "1d28c170-72a3-11ee-8e52-9fa2f02e34bb",
-            "isAdmin": false,
-            "credit": 0,
-            "verified": false
-        },
-        {
-            "email": "moshedoytsh@gmail.com",
-            "password": "$2a$10$6dHic0yxHklmpLPNsR3/uuFvpHSDrOO2IwqfqJbgFIQr4.BEdO6ym",
-            "_id": "5b595180-72a3-11ee-b76a-513a535d9877",
-            "isAdmin": false,
-            "credit": 0,
-            "verified": true
-        },
-        {
-            "email": "regular@gmail.com",
-            "password": "$2a$10$GeVi/RRstUE8ZmxYzxNEjOPU9IsBCG8G0h0Ykr8s.e8p1K76wGaxC",
-            "_id": "1da9cfb0-5604-11ee-a849-b9689e3332b0",
-            "isAdmin": false,
-            "credit": 1,
-            "verified": false
-        },
-        {
-            "email": "regular@gmail.com",
-            "password": "$2a$10$GeVi/RRstUE8ZmxYzxNEjOPU9IsBCG8G0h0Ykr8s.e8p1K76wGaxC",
-            "_id": "1da9cfb0-5604-11ee-a849-b9689e3332b0",
-            "isAdmin": false,
-            "credit": 2,
-            "verified": false
-        },
-        {
-            "email": "akiva1132@gmail.com",
-            "password": "$2a$10$FgSDlulL7ybSSenC02IFteMV6kWLT8L5/gxoUtNPhYEgXrayULdlC",
-            "_id": "af80aa70-741e-11ee-bc4e-f5911a1b4bc7",
-            "isAdmin": false,
-            "credit": 0,
-            "verified": false
-        },
-        {
-            "email": "Akiva1132@gmail.com",
-            "password": "$2a$10$Wm3jBai6UE94ryUEZUDiPuVBGrkHCX3/kwzu/GQ4fGSSK2DiB.u6y",
-            "_id": "1e138cf0-741f-11ee-bc4e-f5911a1b4bc7",
-            "isAdmin": false,
-            "credit": 0,
-            "verified": false
-        },
-        {
-            "email": "regular@gmail.com",
-            "password": "$2a$10$GeVi/RRstUE8ZmxYzxNEjOPU9IsBCG8G0h0Ykr8s.e8p1K76wGaxC",
-            "_id": "1da9cfb0-5604-11ee-a849-b9689e3332b0",
-            "isAdmin": false,
-            "credit": 3,
             "verified": true
         }
     ]

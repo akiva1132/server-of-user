@@ -16,10 +16,10 @@ export const orderVerification = async (orderId:string) => {
     });
     const data = await response.json();
     if (response.ok) {
-      console.log(data);
+      // console.log(data);
       return data;
     } else {
-      console.log(data);
+      // console.log(data);
       throw new error(data);
     }
   } catch (error) {
