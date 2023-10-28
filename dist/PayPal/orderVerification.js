@@ -25,7 +25,7 @@ const orderVerification = async (orderId) => {
         }
     }
     catch (error) {
-        console.log("errrr");
+        console.log(error);
         throw error(error.message);
     }
 };

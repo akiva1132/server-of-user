@@ -23,7 +23,7 @@ export const orderVerification = async (orderId:string) => {
       throw new error(data);
     }
   } catch (error) {
-    console.log("errrr");
+    console.log(error);
     
     throw error(error.message);
   }
