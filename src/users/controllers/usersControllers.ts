@@ -29,6 +29,8 @@ declare global {
 
 export const checkOrder = async (req: Request, res: Response)=>{
   const {orderId} = req.params
+  console.log("dfd");
+  
   try{
     const order = await orderVerification(orderId)
     console.log(order, req.body);

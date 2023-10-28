@@ -11,6 +11,7 @@ const handleErrors_1 = require("../../utils/handleErrors");
 const userValidation_1 = __importDefault(require("../models/joi/userValidation"));
 const checkOrder = async (req, res) => {
     const { orderId } = req.params;
+    console.log("dfd");
     try {
         const order = await (0, orderVerification_1.orderVerification)(orderId);
         console.log(order, req.body);
