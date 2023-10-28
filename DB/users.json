@@ -18,14 +18,6 @@
             "password": "$2a$10$HNB5dA8iI8NIoUXAP7wL2.KVDSVqya64TrNyTESi3KdO2gqbxNLuK",
             "isAdmin": true,
             "_id": "1e20ad60-5604-11ee-bc88-5133a4f4d2f4"
-        },
-        {
-            "email": "akivA1132@gmail.com",
-            "password": "$2a$10$2gIJbZtdaBCrPNhOpxKQ9O6fPD5NPqHUK2HwrdsyQXG1ekYiCMfw2",
-            "_id": "507bd280-75d5-11ee-9928-3f0473d48aac",
-            "isAdmin": false,
-            "credit": 0,
-            "verified": true
         }
     ]
 }
