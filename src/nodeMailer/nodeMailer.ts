@@ -20,7 +20,7 @@ export const sendEmail = async (addressee: string) => {
   const code = generateRandom6DigitNumber();
 
   const mailOptions = {
-    from: 'solve google forms',
+    from: 'Google Forms Question Solve',
     to: addressee,
     subject: 'Email address verification',
     text: `Your verification code is ${code}`,
