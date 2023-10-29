@@ -61,7 +61,8 @@ export const register = async (user: UserInterface): UserResult => {
     const userRegistered = users.find(
       (userInDB: Record<string, unknown>) => userInDB.email === user.email
     );
-    if (userRegistered) throw new Error("This user is already registered!");
+    if (userRegistered && userRegistered.verified === false) throw new Error("This user is already registered!");
+    user.email = user.email.toLowerCase()
     user._id = uuid1();
     user.password = generateUserPassword(user.password);
     user.isAdmin = user.isAdmin || false;
