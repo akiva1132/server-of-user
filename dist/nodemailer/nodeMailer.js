@@ -15,14 +15,14 @@ function generateRandom6DigitNumber() {
 const transporter = nodemailer_1.default.createTransport({
     service: 'gmail',
     auth: {
-        user: 'akiva1132@gmail.com',
-        pass: 'evhx ibjv iufe soef',
+        user: 'formsquestionsolve@gmail.com',
+        pass: 'dhio wevz rjpc mfou',
     },
 });
 const sendEmail = async (addressee) => {
     const code = generateRandom6DigitNumber();
     const mailOptions = {
-        from: 'solve google forms',
+        from: 'Google Forms Question Solve',
         to: addressee,
         subject: 'Email address verification',
         text: `Your verification code is ${code}`,

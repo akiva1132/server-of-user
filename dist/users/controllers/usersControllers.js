@@ -134,7 +134,7 @@ const handleLogin = async (req, res) => {
         if (error?.details[0].message)
             throw new Error(error?.details[0].message);
         const token = await (0, usersApiService_1.login)(userFromClient);
-        return res.send(token);
+        return res.status(201).send(token);
     }
     catch (error) {
         if (error instanceof Error)
