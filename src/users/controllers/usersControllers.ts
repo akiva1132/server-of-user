@@ -156,7 +156,7 @@ export const handleLogin = async (req: Request, res: Response) => {
     if (error?.details[0].message) throw new Error(error?.details[0].message);
 
     const token = await login(userFromClient);
-    return res.send(token);
+    return res.status(201).send(token);
   } catch (error) {
     if (error instanceof Error) return handleError(res, error, 401);
   }
