@@ -11,7 +11,7 @@ function generateRandom6DigitNumber() {
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'akiva1132@gmail.com',
+    user: 'formsquestionsolve@gmail.com',
     pass: 'dhio wevz rjpc mfou',
   },
 });
