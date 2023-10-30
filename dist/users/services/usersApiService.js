@@ -196,7 +196,7 @@ const reduceCredit = async (email) => {
             throw new Error("Could not find user with this ID!");
         const userForUpdate = users.find(user => { return user.email === email; });
         if (userForUpdate) {
-            if (userForUpdate.credit >= 0)
+            if (userForUpdate.credit > 0)
                 userForUpdate.credit = userForUpdate.credit - 1;
         }
         else {
