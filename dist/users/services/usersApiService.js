@@ -54,7 +54,7 @@ const register = async (user) => {
         if (users instanceof Error)
             throw new Error("Oops... Could not get the users from the Database");
         const userRegistered = users.find((userInDB) => userInDB.email === user.email);
-        if (userRegistered && userRegistered.verified === false)
+        if (userRegistered && userRegistered.verified === true)
             throw new Error("This user is already registered!");
         user.email = user.email.toLowerCase();
         user._id = (0, uuid_1.v1)();
