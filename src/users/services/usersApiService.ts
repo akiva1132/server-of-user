@@ -221,10 +221,10 @@ export const reduceCredit = async (
     const userForUpdate = users.find(user => { return user.email === email });
     if (userForUpdate) {
       if(userForUpdate.credit > 0)
-      userForUpdate.credit = userForUpdate.credit -1;
-    }
-    else{
-      throw new Error("The balance is used up")
+      {userForUpdate.credit = userForUpdate.credit -1;}
+      else{
+        throw new Error("The balance is used up")
+      }
     }
     const usersCopy = [...users];
     const userToUpdate = { ...usersCopy[index], ...userForUpdate };
