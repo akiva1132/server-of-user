@@ -24,7 +24,7 @@
             "password": "$2a$10$ICESAvHLwT6vgsTCWRCSTOmT0qCc2amaOtqWXzCOEe4vIjpna6Syi",
             "_id": "aa71b350-7719-11ee-92a4-815b76ee3ad9",
             "isAdmin": true,
-            "credit": 1,
+            "credit": 0,
             "verified": true
         }
     ]

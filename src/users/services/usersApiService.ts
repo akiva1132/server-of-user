@@ -208,3 +208,33 @@ export const editCredit = async (
     return Promise.reject(error);
   }
 };
+
+export const reduceCredit = async (
+  email: string,
+): Promise<string | null> => {
+  try {
+    const users = await getCollectionFromJsonFile("users");
+    if (users instanceof Error)
+      throw new Error("Oops... Could not get the users from the Database");
+    const index = users.findIndex((user) => user.email === email);
+    if (index === -1) throw new Error("Could not find user with this ID!");
+    const userForUpdate = users.find(user => { return user.email === email });
+    if (userForUpdate) {
+      if(userForUpdate.credit >= 0)
+      userForUpdate.credit = userForUpdate.credit -1;
+    }
+    else{
+      throw new Error("The balance is used up")
+    }
+    const usersCopy = [...users];
+    const userToUpdate = { ...usersCopy[index], ...userForUpdate };
+    usersCopy[index] = userToUpdate;
+
+    const data = await modifyCollection("users", usersCopy);
+    if (!data)
+      throw new Error("Oops... something went wrong Could not Edit this user");
+    return null
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};

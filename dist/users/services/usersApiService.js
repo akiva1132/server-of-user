@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.editCredit = exports.loginAfterRegister = exports.login = exports.deleteUser = exports.editUser = exports.register = exports.getUserByEmail = exports.getUser = exports.getUsers = void 0;
+exports.reduceCredit = exports.editCredit = exports.loginAfterRegister = exports.login = exports.deleteUser = exports.editUser = exports.register = exports.getUserByEmail = exports.getUser = exports.getUsers = void 0;
 const uuid_1 = require("uuid");
 const bcrypt_1 = require("../helpers/bcrypt");
 const jsonfileDAL_1 = require("../../dataAccessLayer/jsonfileDAL");
@@ -186,3 +186,32 @@ const editCredit = async (email, amount) => {
     }
 };
 exports.editCredit = editCredit;
+const reduceCredit = async (email) => {
+    try {
+        const users = await (0, jsonfileDAL_1.getCollectionFromJsonFile)("users");
+        if (users instanceof Error)
+            throw new Error("Oops... Could not get the users from the Database");
+        const index = users.findIndex((user) => user.email === email);
+        if (index === -1)
+            throw new Error("Could not find user with this ID!");
+        const userForUpdate = users.find(user => { return user.email === email; });
+        if (userForUpdate) {
+            if (userForUpdate.credit >= 0)
+                userForUpdate.credit = userForUpdate.credit - 1;
+        }
+        else {
+            throw new Error("The balance is used up");
+        }
+        const usersCopy = [...users];
+        const userToUpdate = { ...usersCopy[index], ...userForUpdate };
+        usersCopy[index] = userToUpdate;
+        const data = await (0, jsonfileDAL_1.modifyCollection)("users", usersCopy);
+        if (!data)
+            throw new Error("Oops... something went wrong Could not Edit this user");
+        return null;
+    }
+    catch (error) {
+        return Promise.reject(error);
+    }
+};
+exports.reduceCredit = reduceCredit;
